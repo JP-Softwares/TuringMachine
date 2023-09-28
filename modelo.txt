@@ -1,0 +1,16 @@
+bolinha - Estado
+
+Estado (nome, estadoInicial?, lista de transições Hashmap {a chave é a letra})
+
+estado aceita
+estado rejeita
+
+Lista de Estados
+
+Transição (direção, marcaUmX?, próximo Estado)
+
+vazio é ' '
+
+
+Transição = EstadoInicial.Hashmap('a') 
+EstadoAtual = Transição.próximoEstado

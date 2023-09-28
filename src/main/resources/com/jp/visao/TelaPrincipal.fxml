@@ -116,7 +116,7 @@
             <DropShadow height="15.0" radius="7.0" width="15.0" />
          </effect>
          <center>
-            <Label id="nomeVECTitlebar" alignment="CENTER" text="Estrutura de Dados" textFill="WHITE" BorderPane.alignment="CENTER" />
+            <Label id="nomeVECTitlebar" alignment="CENTER" text="Turing Machine" textFill="WHITE" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </top>

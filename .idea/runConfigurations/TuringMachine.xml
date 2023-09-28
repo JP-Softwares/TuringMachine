@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="TuringMachine" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="com.jp.visao.Run" />
-    <module name="Busca-em-Arvores" />
+    <module name="TuringMachine" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>

@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Busca-em-Arvores" />
+        <module name="TuringMachine" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Busca em Árvores" target="17" />
+      <module name="Busca-em-Arvores" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

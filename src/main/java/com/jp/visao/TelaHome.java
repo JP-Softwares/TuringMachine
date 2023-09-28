@@ -19,6 +19,6 @@ public class TelaHome implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Run.telaHome = this;
-        
+
     }
 }

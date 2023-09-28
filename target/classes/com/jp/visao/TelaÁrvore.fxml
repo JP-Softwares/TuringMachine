@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane minHeight="446.0" minWidth="290.0" stylesheets="@TelaÁrvoreStylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaÁrvore">
+   <children>
+      <StackPane prefHeight="416.0" prefWidth="290.0" styleClass="stackpane" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <TreeView id="treeview" fx:id="viewArvore" />
+                  <AnchorPane prefHeight="52.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER" spacing="30.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#clickBalanceada" prefHeight="35.0" prefWidth="120.0" text="Balanceada" />
+                              <Button mnemonicParsing="false" onAction="#clickDesbalanceada" prefHeight="35.0" prefWidth="120.0" text="Desbalanceada" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

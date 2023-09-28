@@ -1,0 +1,39 @@
+* {
+    -fx-font-family: Montserrat;
+    -fx-text-fill: #000;
+}
+
+.button {
+    -fx-background-color: #dddddd;
+    -fx-font-size: 16px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-text-fill: #fff;
+}
+
+#Title {
+    -fx-font-size: 44px;
+}
+
+.root{
+    -backgroundColor: #1c1a1a;
+}
+
+.titleBlocos {
+    -fx-font-size: 24px;
+}
+
+.metricasBlocos {
+    -fx-font-size: 20px;
+}
+
+.anchorPaneBlocos {
+    -fx-background-color: #363232;
+    -fx-background-radius: 5px;
+}

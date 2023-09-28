@@ -1,0 +1,15 @@
+* {
+    -fx-text-fill: #000;
+}
+
+.table-view {
+    -fx-background-color: #e6e6e6;
+}
+
+.coluna {
+    -fx-background-color: #e6e6e6;
+}
+
+.button {
+    -fx-text-fill: #fff;
+}

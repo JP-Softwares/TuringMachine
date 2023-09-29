@@ -5,21 +5,35 @@ import java.util.Iterator;
 import java.util.List;
 
 public class maquina {
+    int posFita = 0;
 
     public String testarMaquina(List<Estado> estados, String cadeia){
-        int posFita = 0;
+
         char[] fita = separaCadeia(cadeia);
         Estado estadoAtual = achaInicial(estados);
         while(true){
-            char a = fita[posFita];
-            Transicao trans = estadoAtual.getListaTransicao().get(a);
-            EstadoAtual = Transição.próximoEstado
-            return null;
+            char simbolo = fita[posFita];
+            Transicao trans = estadoAtual.getListaTransicao().get(simbolo);
+            estadoAtual = trans.getProxEstado();
+            if(estadoAtual.getNome().equals("aceita")){
+                return "aceita";
+            }
+            if(estadoAtual.getNome().equals("rejeita")){
+                return "rejeita";
+            }
+            if(trans.isMarcaX()) fita[posFita]= 'X';
+            moveFita(trans.getDirecao());
         }
         //return null;
     }
 
 
+
+    private void moveFita(char direcao){
+        if(direcao == 'E'){
+            //if()
+        }
+    }
 
 
     private Estado achaInicial(List<Estado> estados){

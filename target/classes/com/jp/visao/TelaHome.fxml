@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.CustomMenuItem?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="paneRoot" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: #1E1F22;" stylesheets="@TelaHomeStylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaHome">
+<AnchorPane fx:id="paneRoot" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1185.0" style="-fx-background-color: #1E1F22;" stylesheets="@TelaHomeStylesheet.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaHome">
    <children>
-      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1185.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <StackPane alignment="TOP_CENTER" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" />
-         </children>
-      </StackPane>
+      <Label AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#createState" text="Criar um Estado" />
+                  <CustomMenuItem mnemonicParsing="false" text="Unspecified Action">
+                    <content>
+                      <CheckBox text="Click Me" />
+                    </content>
+                  </CustomMenuItem>
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </Label>
    </children>
 </AnchorPane>

@@ -12,8 +12,8 @@ public class maquina {
         Estado estadoAtual = achaInicial(estados);
         while(true){
             char a = fita[posFita];
-            Transicao trans = estadoAtual.getListaTransicao().get(a);
-            EstadoAtual = Transição.próximoEstado
+            //Transicao trans = estadoAtual.getListaTransicao().get(a);
+            //EstadoAtual = Transição.próximoEstado;
             return null;
         }
         //return null;

@@ -6,7 +6,7 @@ public class Estado {
     private boolean estadoInicial = false;
     private HashMap<Character, Transicao> ListaTransicao = null;
 
-    public Estado( String nome, boolean estadoInicial, HashMap ListaTransicao){
+    public Estado( String nome, boolean estadoInicial, HashMap<Character, Transicao> ListaTransicao){
         this.nome = nome;
         this.estadoInicial = estadoInicial;
         this.ListaTransicao = ListaTransicao;
@@ -35,11 +35,11 @@ public class Estado {
         this.estadoInicial = estadoInicial;
     }
 
-    public HashMap getListaTransicao() {
+    public HashMap<Character, Transicao> getListaTransicao() {
         return ListaTransicao;
     }
 
-    public void setListaTransicao(HashMap listaTransicao) {
+    public void setListaTransicao(HashMap<Character, Transicao> listaTransicao) {
         ListaTransicao = listaTransicao;
     }
 }

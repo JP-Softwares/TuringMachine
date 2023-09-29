@@ -31,28 +31,13 @@ public class TelaHome implements Initializable {
 
     private List<Estado> estados = null;
 
-    public void addScreen(String fxml){
-        try{
-            if(paneRoot.getChildren().size() > 0) paneRoot.getChildren().remove(0);
-
-            paneRoot.getChildren().add(FXMLLoader.load(getClass().getResource(fxml)));
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    void createState(ActionEvent event) {
-        addScreen("");
-
-        Point posicaoMouse = MouseInfo.getPointerInfo().getLocation();
-        System.out.println(posicaoMouse.x + " - " + posicaoMouse.y);
-    }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Run.telaHome = this;
 
         estados = new LinkedList<>();
+
+        estados.add(new Estado("aceita", false, null));
+        estados.add(new Estado("rejeita", false, null));
     }
 }

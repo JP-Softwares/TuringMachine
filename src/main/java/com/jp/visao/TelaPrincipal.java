@@ -90,7 +90,7 @@ public class TelaPrincipal implements Initializable{
 
     ActionListener metodoEditExit;
 
-    TelaAtual telaAtual = TelaAtual.TELAHOME;
+    TelaAtual telaAtual = null;
     
     String caminhoPadrao = "/com/jp/";
 
@@ -231,10 +231,12 @@ public class TelaPrincipal implements Initializable{
 
     @FXML
     private void showHome(ActionEvent event) {
+        if (telaAtual != TelaAtual.TELAHOME){
+            setScene("TelaHome.fxml");
+        }
+
         telaAtual = TelaAtual.TELAHOME;
         setBotaoSelecionadoSideBar();
-
-        setScene("TelaHome.fxml");
     }
 
     public void setScene(String fxml){
@@ -257,6 +259,7 @@ public class TelaPrincipal implements Initializable{
                 ((ImageView) botaoHome.lookup("ImageView")).setImage(new Image(getClass().getResource(caminhoPadrao + "icones/home_black.png").toString()));
                 break;
         }
+        if (lateralMenuOpen) lateralMenu(null);
     }
 
     public void relayoutEditPane(){

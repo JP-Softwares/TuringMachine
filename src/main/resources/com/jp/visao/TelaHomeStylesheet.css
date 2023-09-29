@@ -25,6 +25,14 @@
     -backgroundColor: #1c1a1a;
 }
 
+#splitpane {
+    -fx-background-color: -backgroundColor;
+}
+
+.areaTitle {
+    -fx-font-size: 20px;
+}
+
 .titleBlocos {
     -fx-font-size: 24px;
 }

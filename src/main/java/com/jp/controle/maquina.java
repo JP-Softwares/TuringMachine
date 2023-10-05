@@ -33,7 +33,11 @@ public class maquina {
 
     private void moveFita(char direcao){
         if(direcao == 'E'){
-            //if()
+            if(posFita > 0 && posFita < tamanho){
+                posFita--;
+            }
+        }else{
+            posFita++;
         }
     }
 

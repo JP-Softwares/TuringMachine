@@ -6,10 +6,12 @@ import java.util.List;
 
 public class maquina {
     int posFita = 0;
+    int tamanho = 0;
 
     public String testarMaquina(List<Estado> estados, String cadeia){
-
+        cadeia = cadeia + " ";
         char[] fita = separaCadeia(cadeia);
+        tamanho = fita.length-1;
         Estado estadoAtual = achaInicial(estados);
         while(true){
             char simbolo = fita[posFita];

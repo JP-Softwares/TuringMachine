@@ -13,16 +13,15 @@ public class maquina {
         char[] fita = separaCadeia(cadeia);
         tamanho = fita.length-1;
         Estado estadoAtual = achaInicial(estados);
+        if(estadoAtual.getNome().equals("aceita"))return "aceita";
+        if(estadoAtual.getNome().equals("rejeita"))return "rejeita";
         while(true){
             char simbolo = fita[posFita];
             Transicao trans = estadoAtual.getListaTransicao().get(simbolo);
+            if(trans == null) return "rejeita";
             estadoAtual = trans.getProxEstado();
-            if(estadoAtual.getNome().equals("aceita")){
-                return "aceita";
-            }
-            if(estadoAtual.getNome().equals("rejeita")){
-                return "rejeita";
-            }
+            if(estadoAtual.getNome().equals("aceita"))return "aceita";
+            if(estadoAtual.getNome().equals("rejeita")) return "rejeita";
             if(trans.isMarcaX()) fita[posFita]= 'X';
             moveFita(trans.getDirecao());
         }

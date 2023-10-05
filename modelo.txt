@@ -7,7 +7,7 @@ estado rejeita
 
 Lista de Estados
 
-Transição (direção, marcaUmX?, próximo Estado)
+Transição (direção, marcaUmX?, próximoEstado)
 
 vazio é ' '
 

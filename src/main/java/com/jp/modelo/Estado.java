@@ -12,8 +12,10 @@ public class Estado {
         this.ListaTransicao = ListaTransicao;
     }
 
-    public Estado( String nome){
+    public Estado(String nome, boolean estadoInicial){
         this.nome = nome;
+        this.estadoInicial = estadoInicial;
+        this.ListaTransicao = new HashMap<>();
     }
 
     public Estado(){

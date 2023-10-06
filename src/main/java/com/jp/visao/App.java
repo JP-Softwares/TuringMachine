@@ -51,7 +51,7 @@ public class App extends Application {
 
     public Node getScene(String fxml){
         try {
-            return FXMLLoader.load(getClass().getResource(fxml));
+            return FXMLLoader.load(getClass().getResource(fxml + ".fxml"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

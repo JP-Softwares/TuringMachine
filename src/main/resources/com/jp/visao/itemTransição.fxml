@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.itemTransição">
+   <center>
+      <HBox fx:id="hboxEstado" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0">
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+         <children>
+            <TextField fx:id="tfLetraTransicao" />
+            <ComboBox fx:id="cbEstadoAnterior" prefWidth="150.0" />
+            <ImageView fitHeight="20.0" fitWidth="50.0" preserveRatio="true">
+               <image>
+                  <Image url="@../icones/seta.png" />
+               </image>
+            </ImageView>
+            <ComboBox fx:id="cbEstadoFinal" prefWidth="150.0" />
+            <VBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <ToggleButton fx:id="tbEsquerda" mnemonicParsing="false" onAction="#setEsquerda" prefWidth="65.0" selected="true" text="Esquerda" />
+                  <ToggleButton fx:id="tbDireita" mnemonicParsing="false" onAction="#setDireita" prefWidth="65.0" text="Direita" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+   <right>
+      <Button cancelButton="true" mnemonicParsing="false" onAction="#removeState" BorderPane.alignment="CENTER">
+         <graphic>
+            <AnchorPane>
+               <children>
+                  <Line endX="21.0" endY="20.0" layoutY="1.0" startY="2.0" />
+                  <Line endX="-20.0" endY="20.0" layoutX="20.0" layoutY="1.0" startY="2.0" />
+               </children>
+            </AnchorPane>
+         </graphic>
+      </Button>
+   </right>
+   <padding>
+      <Insets left="10.0" right="10.0" />
+   </padding>
+</BorderPane>

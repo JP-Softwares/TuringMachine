@@ -1,7 +1,11 @@
 package com.jp.visao;
 
+import com.jp.controle.maquina;
 import com.jp.modelo.Estado;
 import com.jp.modelo.Transicao;
+import javafx.beans.Observable;
+import javafx.beans.binding.Bindings;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,11 +13,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
+import javafx.util.StringConverter;
 
+import javax.swing.*;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class TelaHome implements Initializable {
 
@@ -24,10 +32,10 @@ public class TelaHome implements Initializable {
     private BorderPane bpAddTransition;
 
     @FXML
-    private ComboBox<String> cbEstadoAnterior;
+    private ComboBox<Estado> cbEstadoAnterior;
 
     @FXML
-    private ComboBox<String> cbEstadoFinal;
+    private ComboBox<Estado> cbEstadoFinal;
 
     @FXML
     private VBox vboxEstado;
@@ -56,7 +64,13 @@ public class TelaHome implements Initializable {
     @FXML
     private TextField tfNomeEstado;
 
+    @FXML
+    private TextField tfCadeia;
+
+
     public Estado ultimoEstadoAdicionado = null;
+
+    public Estado estadoUltimaTransicaoAdicionada = null;
 
     public Transicao ultimaTransicaoAdicionada = null;
 
@@ -64,7 +78,11 @@ public class TelaHome implements Initializable {
 
     private SwitchButton sbTransition;
 
-    private List<Estado> estados = null;
+    public ObservableList<Estado> estados = null;
+
+    public StringConverter<Estado> conversorEstadoString = null;
+
+    private maquina turingMachine = null;
 
     private Estado getEstado(String nomeEstado) {
         return estados.stream().filter(estado -> estado.getNome().equals(nomeEstado)).findFirst().get();
@@ -86,15 +104,6 @@ public class TelaHome implements Initializable {
                 vboxListaEstados.getChildren().add(Run.app.getScene("itemEstado"));
 
                 tfNomeEstado.setText("");
-
-                cbEstadoAnterior.getItems().removeAll();
-
-
-                cbEstadoAnterior.getItems().addAll(estados.stream().filter(estado -> !estado.getNome().equals("aceita") && !estado.getNome().equals("rejeita")).map(estado -> estado.getNome()).toList());
-
-                cbEstadoFinal.getItems().removeAll();
-
-                cbEstadoFinal.getItems().addAll(estados.stream().map(estado -> estado.getNome()).toList());
             }
         }
     }
@@ -104,10 +113,14 @@ public class TelaHome implements Initializable {
         vboxListaEstados.getChildren().remove(item);
     }
 
+    public void removeTransition(Estado estado, char letraTransicao, Node item){
+        estado.getListaTransicao().remove(letraTransicao);
+        vboxListaTransicoes.getChildren().remove(item);
+    }
+
     @FXML
     void exitAddState(ActionEvent event) {
         bpAddState.setVisible(false);
-
     }
 
     @FXML
@@ -117,12 +130,15 @@ public class TelaHome implements Initializable {
 
     @FXML
     void addTransition(ActionEvent event) {
-        cbEstadoFinal.getSelectionModel().getSelectedItem();
-        ultimaTransicaoAdicionada = new Transicao(tbEsquerda.isSelected() ? 'E' : tbDireita.isSelected() ? 'D' : ' ', sbTransition.getState(), getEstado(cbEstadoFinal.getSelectionModel().getSelectedItem()));
+        ultimaTransicaoAdicionada = new Transicao(tbEsquerda.isSelected() ? 'E' : tbDireita.isSelected() ? 'D' : ' ', sbTransition.getState(), getEstado(cbEstadoFinal.getSelectionModel().getSelectedItem().getNome()));
 
-        getEstado(cbEstadoAnterior.getSelectionModel().getSelectedItem()).getListaTransicao().put(tfLetraTransicao.getText().toCharArray()[0], ultimaTransicaoAdicionada);
+        estadoUltimaTransicaoAdicionada = getEstado(cbEstadoAnterior.getSelectionModel().getSelectedItem().getNome());
+
+        getEstado(cbEstadoAnterior.getSelectionModel().getSelectedItem().getNome()).getListaTransicao().put(tfLetraTransicao.getText().toCharArray()[0], ultimaTransicaoAdicionada);
 
         vboxListaTransicoes.getChildren().add(Run.app.getScene("itemTransição"));
+
+        exitAddTransition(null);
     }
 
     @FXML
@@ -141,9 +157,15 @@ public class TelaHome implements Initializable {
     }
 
 
+    @FXML
+    void playTuringMachine(ActionEvent event) {
+        JOptionPane.showMessageDialog(null, "Resultado: " + turingMachine.testarMaquina(this.estados, tfCadeia.getText()));
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        estados = FXCollections.observableArrayList();
+
         Run.telaHome = this;
         sbState = new SwitchButton();
         vboxEstado.getChildren().add(sbState);
@@ -151,9 +173,32 @@ public class TelaHome implements Initializable {
         sbTransition = new SwitchButton();
         vboxTransicao.getChildren().add(sbTransition);
 
-        estados = new LinkedList<>();
+        //estados = new LinkedList<>();
+        turingMachine = new maquina();
+
 
         estados.add(new Estado("aceita", false, null));
         estados.add(new Estado("rejeita", false, null));
+
+        conversorEstadoString = new StringConverter<Estado>() {
+            @Override
+            public String toString(Estado estado) {
+                return estado == null ? "" : estado.getNome();
+            }
+
+            @Override
+            public Estado fromString(String s) {
+                return getEstado(s);
+            }
+        };
+
+        cbEstadoAnterior.setConverter(conversorEstadoString);
+        cbEstadoFinal.setConverter(conversorEstadoString);
+
+        cbEstadoAnterior.setItems(estados.filtered(estado -> !estado.getNome().equals("aceita") && !estado.getNome().equals("rejeita")));
+        //cbEstadoAnterior.setItems(estados.stream().filter(estado -> !estado.getNome().equals("aceita") && !estado.getNome().equals("rejeita")).map(estado -> estado.getNome()).toList());
+        cbEstadoFinal.setItems(estados);
+
+        //cbEstadoFinal.setItems((ObservableList<String>) estados.stream().map(estado -> estado.getNome()).toList());
     }
 }

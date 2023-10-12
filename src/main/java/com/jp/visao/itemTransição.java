@@ -49,20 +49,54 @@ public class itemTransição implements Initializable {
     private char letraTransicao = ' ';
 
     @FXML
+    void estadoAnteriorChange(ActionEvent event) {
+        Run.telaHome.changeEstadoTransition(this.estado, cbEstadoAnterior.getSelectionModel().getSelectedItem(), this.letraTransicao, this.transicao);
+        this.estado = cbEstadoAnterior.getSelectionModel().getSelectedItem();
+        printTransicao();
+    }
+
+    @FXML
+    void estadoFinalChange(ActionEvent event) {
+        Run.telaHome.getEstado(this.estado.getNome()).getListaTransicao().get(this.letraTransicao).setProxEstado(cbEstadoFinal.getSelectionModel().getSelectedItem());
+        printTransicao();
+    }
+    @FXML
     void removeTransition(ActionEvent event) {
         Run.telaHome.removeTransition(this.estado, this.letraTransicao, this.root);
+    }
+
+    @FXML
+    void letraChange(KeyEvent event) {
+        Run.telaHome.changeLetterTransition(this.estado, this.letraTransicao, tfLetraTransicao.getText().toCharArray()[0], this.transicao);
+        this.letraTransicao = tfLetraTransicao.getText().toCharArray()[0];
+
+        printTransicao();
     }
 
     @FXML
     void setDireita(ActionEvent event) {
         this.transicao.setDirecao('D');
         tbEsquerda.setSelected(false);
+        printTransicao();
     }
 
     @FXML
     void setEsquerda(ActionEvent event) {
         this.transicao.setDirecao('E');
         tbDireita.setSelected(false);
+        printTransicao();
+    }
+
+    void printTransicao(){
+        Transicao essaTransicao = Run.telaHome.getEstado(this.estado.getNome()).getListaTransicao().get(this.letraTransicao);
+
+        String transicoes = "";
+
+        for (Character letra : Run.telaHome.getEstado(this.estado.getNome()).getListaTransicao().keySet()){
+            transicoes += letra + "|";
+        }
+
+        System.out.println("Transição: marcaX->" + essaTransicao.isMarcaX() + ", letrasTransicao: " + transicoes + ", Estado Anterior: " + Run.telaHome.getEstado(this.estado.getNome()).getNome() + ", Novo Estado: " + essaTransicao.getProxEstado().getNome() + ", Direção: " + essaTransicao.getDirecao());
     }
 
     @Override
@@ -104,6 +138,5 @@ public class itemTransição implements Initializable {
         }
 
         tfLetraTransicao.setText(letraTransicao + "");
-
     }
 }

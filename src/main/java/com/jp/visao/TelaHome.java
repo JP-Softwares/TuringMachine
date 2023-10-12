@@ -84,7 +84,7 @@ public class TelaHome implements Initializable {
 
     private maquina turingMachine = null;
 
-    private Estado getEstado(String nomeEstado) {
+    public Estado getEstado(String nomeEstado) {
         return estados.stream().filter(estado -> estado.getNome().equals(nomeEstado)).findFirst().get();
     }
 
@@ -113,8 +113,18 @@ public class TelaHome implements Initializable {
         vboxListaEstados.getChildren().remove(item);
     }
 
+    public void changeEstadoTransition(Estado estadoAnterior, Estado estadoNovo, char letraTransicao, Transicao transicao){
+        getEstado(estadoAnterior.getNome()).getListaTransicao().remove(letraTransicao);
+        getEstado(estadoNovo.getNome()).getListaTransicao().put(letraTransicao, transicao);
+    }
+
+    public void changeLetterTransition(Estado estado, char letraTransicaoAntiga, char letraTransicaoNova, Transicao transicao){
+        getEstado(estado.getNome()).getListaTransicao().remove(letraTransicaoAntiga);
+        getEstado(estado.getNome()).getListaTransicao().put(letraTransicaoNova, transicao);
+    }
+
     public void removeTransition(Estado estado, char letraTransicao, Node item){
-        estado.getListaTransicao().remove(letraTransicao);
+        getEstado(estado.getNome()).getListaTransicao().remove(letraTransicao);
         vboxListaTransicoes.getChildren().remove(item);
     }
 

@@ -29,14 +29,14 @@
                   <Label prefHeight="55.0" prefWidth="136.0" style="-fx-font-size: 16px;" text="Marca um X?" wrapText="true" />
                </children>
             </VBox>
-            <TextField fx:id="tfLetraTransicao" prefWidth="50.0" />
-            <ComboBox fx:id="cbEstadoAnterior" prefWidth="100.0" />
+            <TextField fx:id="tfLetraTransicao" onKeyTyped="#letraChange" prefWidth="50.0" />
+            <ComboBox fx:id="cbEstadoAnterior" onAction="#estadoAnteriorChange" prefWidth="100.0" />
             <ImageView fitHeight="20.0" fitWidth="50.0" preserveRatio="true">
                <image>
                   <Image url="@../icones/seta.png" />
                </image>
             </ImageView>
-            <ComboBox fx:id="cbEstadoFinal" prefWidth="100.0" />
+            <ComboBox fx:id="cbEstadoFinal" onAction="#estadoFinalChange" prefWidth="100.0" />
             <VBox alignment="CENTER" spacing="10.0">
                <children>
                   <ToggleButton fx:id="tbEsquerda" mnemonicParsing="false" onAction="#setEsquerda" prefWidth="65.0" text="Esquerda" />

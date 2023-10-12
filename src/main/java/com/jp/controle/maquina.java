@@ -64,6 +64,7 @@ public class maquina {
                     i++;
                 }
                 fita1[i] = ' ';
+                fita = fita1;
             }
             posFita++;
         }

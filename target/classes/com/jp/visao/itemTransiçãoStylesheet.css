@@ -1,0 +1,14 @@
+* {
+    -fx-font-family: Montserrat;
+    -fx-text-fill: #000;
+}
+
+.ToggleButton {
+    -fx-background-color: #fff;
+    -fx-cursor: hand;
+}
+
+
+.ToggleButton:selected {
+    -fx-background-color: #2256fd;
+}

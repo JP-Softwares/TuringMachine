@@ -94,7 +94,7 @@
                               <VBox fx:id="vboxListaTransicoes" alignment="TOP_CENTER" prefHeight="484.0" prefWidth="778.0" />
                            </content>
                         </ScrollPane>
-                        <BorderPane fx:id="bpAddTransition" prefHeight="96.0" prefWidth="252.0" style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                        <BorderPane fx:id="bpAddTransition" prefHeight="96.0" prefWidth="252.0" style="-fx-background-color: #333333;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <right>
                               <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>

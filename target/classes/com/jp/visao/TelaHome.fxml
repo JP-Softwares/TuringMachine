@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="paneRoot" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1185.0" style="-fx-background-color: #1E1F22;" stylesheets="@TelaHomeStylesheet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaHome">
+<AnchorPane fx:id="paneRoot" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="1185.0" style="-fx-background-color: #1E1F22;" stylesheets="@TelaHomeStylesheet.css" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.TelaHome">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <center>
@@ -94,7 +94,7 @@
                               <VBox fx:id="vboxListaTransicoes" alignment="TOP_CENTER" prefHeight="484.0" prefWidth="778.0" />
                            </content>
                         </ScrollPane>
-                        <BorderPane fx:id="bpAddTransition" prefHeight="96.0" prefWidth="252.0" style="-fx-background-color: #333333;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+                        <BorderPane fx:id="bpAddTransition" prefHeight="96.0" prefWidth="252.0" style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
                            <right>
                               <VBox alignment="CENTER" spacing="10.0" BorderPane.alignment="CENTER">
                                  <BorderPane.margin>
@@ -104,10 +104,13 @@
                                     <Button mnemonicParsing="false" onAction="#addTransition" prefWidth="110.0" text="Adicionar" />
                                     <Button mnemonicParsing="false" onAction="#exitAddTransition" prefWidth="110.0" text="Cancelar" />
                                  </children>
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
                               </VBox>
                            </right>
                            <center>
-                              <HBox alignment="CENTER" spacing="30.0" BorderPane.alignment="CENTER">
+                              <HBox alignment="CENTER" spacing="15.0" BorderPane.alignment="CENTER">
                                  <padding>
                                     <Insets left="10.0" right="10.0" />
                                  </padding>
@@ -117,18 +120,33 @@
                                           <Label style="-fx-font-size: 16px;" text="Marca um X?" textAlignment="CENTER" wrapText="true" />
                                        </children>
                                     </VBox>
-                                    <TextField fx:id="tfLetraTransicao" prefWidth="50.0" />
-                                    <ComboBox fx:id="cbEstadoAnterior" prefWidth="100.0" />
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label alignment="CENTER" prefWidth="140.0" style="-fx-font-size: 16px;" text="Letra Transição" textAlignment="CENTER" wrapText="true" />
+                                          <TextField fx:id="tfLetraTransicao" alignment="CENTER" prefWidth="50.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label style="-fx-font-size: 16px;" text="de" textAlignment="CENTER" wrapText="true" />
+                                          <ComboBox fx:id="cbEstadoAnterior" prefWidth="100.0" />
+                                       </children>
+                                    </VBox>
                                     <ImageView fitHeight="20.0" fitWidth="50.0" preserveRatio="true">
                                        <image>
                                           <Image url="@../icones/seta.png" />
                                        </image>
                                     </ImageView>
-                                    <ComboBox fx:id="cbEstadoFinal" prefWidth="100.0" />
+                                    <VBox alignment="CENTER">
+                                       <children>
+                                          <Label style="-fx-font-size: 16px;" text="para" textAlignment="CENTER" wrapText="true" />
+                                          <ComboBox fx:id="cbEstadoFinal" prefWidth="100.0" />
+                                       </children>
+                                    </VBox>
                                     <VBox alignment="CENTER" spacing="10.0">
                                        <children>
-                                          <ToggleButton fx:id="tbEsquerda" mnemonicParsing="false" onAction="#setEsquerda" prefWidth="65.0" selected="true" text="Esquerda" />
-                                          <ToggleButton fx:id="tbDireita" mnemonicParsing="false" onAction="#setDireita" prefWidth="65.0" text="Direita" />
+                                          <ToggleButton fx:id="tbEsquerda" mnemonicParsing="false" onAction="#setEsquerda" prefWidth="100.0" styleClass="ToggleButton" text="Esquerda" />
+                                          <ToggleButton fx:id="tbDireita" mnemonicParsing="false" onAction="#setDireita" prefWidth="100.0" styleClass="ToggleButton" text="Direita" />
                                        </children>
                                     </VBox>
                                  </children>

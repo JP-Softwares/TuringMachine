@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Line?>
 
 
-<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.itemEstado">
+<BorderPane fx:id="root" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.jp.visao.itemEstado">
    <center>
       <HBox fx:id="hboxEstado" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="50.0">
          <children>

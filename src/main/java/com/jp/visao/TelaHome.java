@@ -96,14 +96,13 @@ public class TelaHome implements Initializable {
 
     @FXML
     void addState(ActionEvent event) {
-        exitAddState(null);
         if (!tfNomeEstado.getText().equals("aceita") && !tfNomeEstado.getText().equals("rejeita")){
             if (estados.stream().filter(estado -> estado.getNome().equals(tfNomeEstado.getText())).toArray().length == 0) {
                 ultimoEstadoAdicionado = new Estado(tfNomeEstado.getText(), sbState.getState());
                 estados.add(ultimoEstadoAdicionado);
                 vboxListaEstados.getChildren().add(Run.app.getScene("itemEstado"));
 
-                tfNomeEstado.setText("");
+                exitAddState(null);
             }
         }
     }
@@ -131,6 +130,7 @@ public class TelaHome implements Initializable {
     @FXML
     void exitAddState(ActionEvent event) {
         bpAddState.setVisible(false);
+        tfNomeEstado.setText("");
     }
 
     @FXML
@@ -154,6 +154,12 @@ public class TelaHome implements Initializable {
     @FXML
     void exitAddTransition(ActionEvent event) {
         bpAddTransition.setVisible(false);
+        tfLetraTransicao.setText("");
+        cbEstadoAnterior.getSelectionModel().clearSelection();
+        cbEstadoFinal.getSelectionModel().clearSelection();
+        tbEsquerda.setSelected(false);
+        tbDireita.setSelected(false);
+        sbTransition.setState(false);
     }
 
     @FXML

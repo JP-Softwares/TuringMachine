@@ -3,6 +3,16 @@
     -fx-text-fill: #000;
 }
 
+.ToggleButton {
+    -fx-background-color: #fff;
+    -fx-cursor: hand;
+}
+
+
+.ToggleButton:selected {
+    -fx-background-color: #2256fd;
+}
+
 .button {
     -fx-background-color: #dddddd;
     -fx-font-size: 16px;

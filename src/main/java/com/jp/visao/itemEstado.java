@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,7 +17,7 @@ import java.util.ResourceBundle;
 public class itemEstado implements Initializable {
 
     @FXML
-    private HBox hboxEstado;
+    private VBox vboxEstado;
 
     @FXML
     private BorderPane root;
@@ -41,7 +42,7 @@ public class itemEstado implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         switchButton = new SwitchButton();
-        hboxEstado.getChildren().add(0, switchButton);
+        vboxEstado.getChildren().add(switchButton);
 
         this.estado = Run.telaHome.ultimoEstadoAdicionado;
 

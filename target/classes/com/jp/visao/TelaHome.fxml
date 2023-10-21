@@ -40,7 +40,7 @@
                         </BorderPane>
                         <ScrollPane hbarPolicy="NEVER" layoutY="55.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                            <content>
-                              <VBox fx:id="vboxListaEstados" alignment="TOP_CENTER" prefHeight="479.0" prefWidth="402.0" />
+                              <VBox fx:id="vboxListaEstados" alignment="TOP_CENTER" prefHeight="465.0" prefWidth="404.0" />
                            </content>
                         </ScrollPane>
                         <BorderPane fx:id="bpAddState" prefHeight="96.0" prefWidth="252.0" style="-fx-background-color: #333333;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
@@ -91,7 +91,7 @@
                         </BorderPane>
                         <ScrollPane hbarPolicy="NEVER" layoutY="55.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="55.0">
                            <content>
-                              <VBox fx:id="vboxListaTransicoes" alignment="TOP_CENTER" prefHeight="484.0" prefWidth="778.0" />
+                              <VBox fx:id="vboxListaTransicoes" alignment="TOP_CENTER" prefHeight="465.0" prefWidth="778.0" />
                            </content>
                         </ScrollPane>
                         <BorderPane fx:id="bpAddTransition" prefHeight="96.0" prefWidth="252.0" style="-fx-background-color: #333333;" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">

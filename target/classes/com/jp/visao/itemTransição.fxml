@@ -52,7 +52,7 @@
                   <ComboBox fx:id="cbEstadoFinal" onAction="#estadoFinalChange" prefWidth="100.0" />
                </children>
             </VBox>
-            <VBox alignment="CENTER" spacing="10.0">
+            <VBox alignment="CENTER" spacing="5.0">
                <children>
                   <ToggleButton fx:id="tbEsquerda" mnemonicParsing="false" onAction="#setEsquerda" prefWidth="100.0" styleClass="ToggleButton" text="Esquerda" />
                   <ToggleButton fx:id="tbDireita" mnemonicParsing="false" onAction="#setDireita" prefWidth="100.0" styleClass="ToggleButton" text="Direita" />
